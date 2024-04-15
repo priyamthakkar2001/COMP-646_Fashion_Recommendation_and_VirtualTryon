@@ -55,35 +55,26 @@ pip install -r requirements.txt
 
 ### Step 4: Download the Dataset
 
-Use `wget` to download the dataset required for the application. If `wget` is not installed on your system, follow the installation instructions based on your operating system.
+The dataset is a crucial component for the application. Use gdown to download it directly from Google Drive.
 
-Install wget
-- For Ubuntu/Debian:
+Install `gdown`
 
-```bash
-sudo apt install wget
-```
-
-- For Fedora::
+If you do not have `gdown` installed on your system, you can install it using `pip`:
 
 ```bash
-sudo dnf install wget
-```
-
-- For macOS:
-
-```bash
-brew install wget
+pip install gdown
 ```
 
 Download and Extract the Dataset
 
+With `gdown` installed, you can download the `images.zip` file using the following command:
+
 ```bash
-wget -O images.zip "https://drive.google.com/uc?export=download&id=1gvfLUIq-xbMadJ3X1TEUqvYVQuTry5Dx"
+gdown --id '1gvfLUIq-xbMadJ3X1TEUqvYVQuTry5Dx' --output images.zip --fuzzy
 unzip images.zip
 ```
 
-Ensure you are in the "Fashion Project Flask" directory when you unzip to keep all files organized correctly.
+Make sure you are in the "Fashion Project Flask" directory when you run these commands.
 
 ### Step 5: Setup Virtual Try-On Feature
 
