@@ -91,7 +91,7 @@ To use the Virtual Try-On feature, follow these steps:
 
 1. Subscribe to the API:
 
-   - Visit Virtual Try-On API on RapidAPI
+   - Visit [Virtual Try-On API on RapidAPI](https://rapidapi.com/DataToBiz/api/virtual-try-on2/pricing)
    - Subscribe to the service (free for 3 Virtual Try-Ons, with each Try-On allowing up to 5 recommended images).
    - Copy your API key from the API dashboard.
 
