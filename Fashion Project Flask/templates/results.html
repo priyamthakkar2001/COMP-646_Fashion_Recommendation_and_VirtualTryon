@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion Recommendations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('../static/images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff; /* White text color */
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent black background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px; /* More space below header */
+        }
+
+        img {
+            width: 80%;  /* Appropriate width for visibility */
+            height: auto; /* Maintain aspect ratio */
+            margin: 10px 0; /* Vertical spacing */
+            border-radius: 8px; /* Soften edges */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+        }
+
+        .button-container {
+            margin: 20px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff; /* Contrast with button color */
+            background-color: #4CAF50; /* Aesthetic green */
+            padding: 10px 20px;
+            border-radius: 5px; /* Match image borders */
+            font-size: 1em; /* Readable font size */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        a:hover {
+            background-color: #367B25; /* Darker shade for hover */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            img {
+                width: 100%; /* Full width on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Fashion Items</h1>
+        {% if tryon %}
+            {% for recommendation, tryon_image, product_info in recommendations %}
+                <div>
+                    <img src="{{ recommendation }}" alt="Fashion Item">
+                    {% if tryon_image %}
+                        <img src="{{ tryon_image }}" alt="Virtual Tryon">
+                    {% endif %}
+                    <p>{{ product_info['productDisplayName'] }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            {% for recommendation, tryon_image, product_info in recommendations %}
+                <div>
+                    <img src="{{ recommendation }}" alt="Fashion Item">
+                    <p>{{ product_info['productDisplayName'] }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="button-container">
+            <a href="/">New Search</a>
+        </div>
+    </div>
+</body>
+</html>

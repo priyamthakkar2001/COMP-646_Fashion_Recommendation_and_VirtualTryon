@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion Recommendation Project</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('../static/images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff; /* White text color */
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1, h2 {
+            margin: 0 0 20px 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em; /* Less space below main header */
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #aad3ea; /* Light blue for the secondary header */
+            margin-bottom: 1em; /* More space below sub-header */
+        }
+
+        input[type="text"], input[type="file"], button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px 0; /* Margin on top and bottom */
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .custom-file-upload {
+            display: block;
+            width: auto;
+            font-size: 16px;
+            margin: 10px;
+            padding: 10px 15px;
+            background: #1e90ff; /* Blue background */
+            color: #fff; /* White text */
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .custom-file-upload:hover {
+            background: #0b78d1; /* Slightly darker blue on hover */
+        }
+
+        .hidden-input {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position:absolute;
+            z-index: -1;
+        }
+
+        .filename-container {
+            font-size: 16px;
+            margin: 10px;
+            color: #fff; /* White text */
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+
+        #loading-bar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3; /* Light grey */
+            border-top: 5px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-bar">
+        <div class="loader"></div>
+    </div>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <h2>Fashion Recommendation</h2>
+            <h1>Search for Products</h1>
+            <input type="text" name="search_text" id="search_text" placeholder="Enter product details" oninput="handleInput('text')">
+            <h1>Or Upload an Image File</h1>
+            <label class="custom-file-upload">
+                <input type="file" class="hidden-input" name="file" id="file" accept="image/*" onchange="handleInput('file'); updateFilename()">
+                Select file
+            </label>
+            <div class="filename-container" id="filename">No file chosen</div>
+            <img id="imagePreview" src="#" alt="Image preview" style="display: none; max-width: 100%; height: auto;" />
+            <h1>Upload an Image for Virtual Try-On</h1>
+            <label class="custom-file-upload">
+                <input type="file" class="hidden-input" name="tryon_image" id="tryon_image" accept="image/*" onchange="updateTryOnFilename()">
+                Select Try-On Image
+            </label>
+            <div class="filename-container" id="tryon_filename">No file chosen</div>
+            <img id="tryonImagePreview" src="#" alt="Try-On Image preview" style="display: none; max-width: 100%; height: auto;" />
+            
+            <button type="submit">Search/Upload and Analyze</button>
+        </div>
+    </form>
+
+    <script>
+        function updateTryOnFilename() {
+        var input = document.getElementById('tryon_image');
+        var filenameContainer = document.getElementById('tryon_filename');
+        var imagePreview = document.getElementById('tryonImagePreview');
+        var file = input.files[0];
+        var reader  = new FileReader();
+
+        reader.onloadend = function () {
+            imagePreview.src = reader.result;
+            imagePreview.style.display = 'block'; // Show the image preview
+        }
+
+        if (file) {
+            filenameContainer.textContent = file.name;
+            reader.readAsDataURL(file); // Read the image file as a data URL.
+        } else {
+            filenameContainer.textContent = 'No file chosen';
+            imagePreview.style.display = 'none'; // Hide the image preview
+        }
+    }
+
+        function updateFilename() {
+            var input = document.getElementById('file');
+            var filenameContainer = document.getElementById('filename');
+            var imagePreview = document.getElementById('imagePreview');
+            var file = input.files[0];
+            var reader = new FileReader();
+            
+            reader.onloadend = function () {
+                imagePreview.src = reader.result;
+                imagePreview.style.display = 'block'; // Show the image preview
+            }
+
+            if (file) {
+                filenameContainer.textContent = file.name;
+                reader.readAsDataURL(file); // Read the image file as a data URL.
+            } else {
+                filenameContainer.textContent = 'No file chosen';
+                imagePreview.style.display = 'none'; // Hide the image preview
+            }
+        }
+
+        function handleInput(type) {
+            var imagePreview = document.getElementById('imagePreview');
+            var textInput = document.getElementById('search_text');
+            var fileInput = document.getElementById('file');
+
+            if (type === 'text') {
+                fileInput.value = '';
+                document.getElementById('filename').textContent = 'No file chosen';
+                imagePreview.style.display = 'none'; // Hide the image preview
+            } else if (type === 'file') {
+                textInput.value = '';
+            }
+        }
+
+        function showLoader() {
+            document.getElementById('loading-bar').style.display = 'flex'; // Show the loader
+        }
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+            var textInput = document.getElementById('search_text').value;
+            var fileInput = document.getElementById('file').files.length;
+            var imagePreview = document.getElementById('imagePreview').style.display;
+
+            // If no text or file is entered, prevent form submission
+            if (!textInput && !fileInput && imagePreview !== 'block') {
+                event.preventDefault();
+                alert("Please enter text or select a file to upload.");
+            } else {
+                showLoader();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+Flask
+numpy
+tensorflow
+pandas
+torch
+clip-anytorch
+Pillow
+pickle-mixin
+scipy
+scikit-learn
+requests
+Werkzeug
