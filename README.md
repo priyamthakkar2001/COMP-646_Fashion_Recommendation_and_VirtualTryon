@@ -105,6 +105,13 @@ python app.py
 
 The application will run on http://127.0.0.1:5000/ by default. You can access it using any web browser.
 
+## Troubleshoot
+
+If you are having issues with the `embeddings_EfficientB7.pkl` file, Navigate to `Fashion Project Flask/data` folder and download the file using `gdown` using the following command:
+
+```bash
+gdown --id '1g_6fj6rTpxgZfeOuYhOlsrQyXQY3b9vv' --output embeddings_EfficientB7.pkl
+```
 
 ## Usage
 
