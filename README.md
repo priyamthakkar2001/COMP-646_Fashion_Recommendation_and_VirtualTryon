@@ -67,11 +67,13 @@ pip install gdown
 
 Download and Extract the Dataset
 
-With `gdown` installed, you can download the `images.zip` file using the following command:
+With `gdown` installed, you can download the `images.zip` and `data.zip` files using the following command:
 
 ```bash
 gdown --id '1gvfLUIq-xbMadJ3X1TEUqvYVQuTry5Dx' --output images.zip --fuzzy
 unzip images.zip
+gdown --id '1qw8waYxLSkVTUmT14tNa-EqkYNuv-ay_' --output data.zip
+unzip data.zip
 ```
 
 Make sure you are in the "Fashion Project Flask" directory when you run these commands.
@@ -110,13 +112,6 @@ The application will run on http://127.0.0.1:5000/ by default. You can access it
 
 Navigate to `http://127.0.0.1:5000/` in your web browser to start exploring the Fashion Recommendation System. Use the features provided to view different fashion styles and try them on virtually.
 
-## Troubleshoot
-
-If you are having issues with the `embeddings_EfficientB7.pkl` file, Navigate to `Fashion Project Flask/data` folder and download the file using `gdown` using the following command:
-
-```bash
-gdown --id '1g_6fj6rTpxgZfeOuYhOlsrQyXQY3b9vv' --output embeddings_EfficientB7.pkl
-```
 
 ## Conclusion
 
