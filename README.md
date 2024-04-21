@@ -118,10 +118,10 @@ To use the Python Notebooks, copy the `images` folder to the `Python Notebooks` 
 
 By following these detailed instructions, you should be able to set up and start using the Fashion Recommendation System without any problems. For additional support or to report issues, use the project's GitHub issues page.
 
-## Team
+## Contributions
 
-Priyam Thakkar(pt50)
+Priyam Thakkar(pt50) : Code Implementation, Flask Integration, Diagrams, Report
 
-Joseph Mohanty(jm215)
+Joseph Mohanty(jm215) : Code Implementation, Report
 
-Anupreet Sihra(as368)
+Anupreet Sihra(as368) : Report
