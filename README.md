@@ -120,7 +120,7 @@ By following these detailed instructions, you should be able to set up and start
 
 ## Contributions
 
-Priyam Thakkar(pt50) : Code Implementation, Flask Integration, Diagrams, Report
+Priyam Thakkar(pt50) : Code Implementation, Model Evaluation, Flask Integration, Diagrams, Report
 
 Joseph Mohanty(jm215) : Code Implementation, Report
 
