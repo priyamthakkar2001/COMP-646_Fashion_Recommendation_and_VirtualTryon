@@ -112,6 +112,7 @@ The application will run on http://127.0.0.1:5000/ by default. You can access it
 
 Navigate to `http://127.0.0.1:5000/` in your web browser to start exploring the Fashion Recommendation System. Use the features provided to view different fashion styles and try them on virtually.
 
+To use the Python Notebooks, copy the `images` folder to the `Python Notebooks` folder, copy all 4 files from the `data` folder and paste them to the `Python Notebooks` folder.
 
 ## Conclusion
 
