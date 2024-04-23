@@ -122,6 +122,6 @@ By following these detailed instructions, you should be able to set up and start
 
 Priyam Thakkar(pt50) : Code Implementation, Model Evaluation, Frontend, Flask Integration, Diagrams, Report
 
-Joseph Mohanty(jm215) : Code Implementation, Presentation, Report
+Joseph Mohanty(jm215) : Code Implementation, Presentation, Frontend, Report
 
-Anupreet Sihra(as368) : Report, Diagrams, Designed Presentation, Dataset Analysis
+Anupreet Sihra(as368) : Report, Diagrams, Designed Presentation, Dataset Analysis, Evaluation Metrics
