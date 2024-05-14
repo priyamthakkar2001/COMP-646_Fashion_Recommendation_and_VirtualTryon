@@ -120,8 +120,4 @@ By following these detailed instructions, you should be able to set up and start
 
 ## Contributions
 
-Priyam Thakkar(pt50) : Code Implementation, Model Evaluation, Frontend, Flask Integration, Diagrams, Report
-
-Joseph Mohanty(jm215) : Code Implementation, Presentation, Frontend, Report
-
-Anupreet Sihra(as368) : Report, Diagrams, Designed Presentation, Dataset Analysis, Evaluation Metrics
+Priyam Thakkar
