@@ -120,4 +120,4 @@ By following these detailed instructions, you should be able to set up and start
 
 ## Contributions
 
-Priyam Thakkar
+Priyam Thakkar, Mihir Prakash
